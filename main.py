@@ -1,8 +1,8 @@
 # ------------------------------------------------------------------------------
 # Author: Charsarg
-# Date Created: 2024-08-08
+# Date Created: 2024-08-07
 # Current Version: Alpha 1
-# Current Revision: 2024-08-07
+# Current Revision: 2024-08-08
 # Description: A Cortex-M3 assembly simulator, designed for learning and development 
 #               purposes. Project Name: pysembler
 # Copyright: (c) 2023 Charsarg. All rights reserved.
