@@ -36,6 +36,9 @@ dosub	SUB r2, r3
 
 with open("assembly.code") as code_file:
     assembly_code = code_file.read()
+
+#Format the assembly code
+assembly_code = "\t".join(assembly_code.split("    "))
 functions,entryFunction = ExtractFunctions(assembly_code)
 
 #print(functions)
@@ -78,6 +81,7 @@ while Running == True:
     if currentCommand in ['MOVR','MOV','BL',"ADD","SUB","LDRB"]:
         currentParameters = substitute_parameters(currentParameters,ram,keep_first_value=True)
     else:
+        print(currentFunction)
         currentParameters = substitute_parameters(currentParameters,ram)
     
     #print(currentCommand)
