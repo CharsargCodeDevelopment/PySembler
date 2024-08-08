@@ -16,7 +16,7 @@
 # ------------------------------------------------------------------------------
 
 
-from pysembler.pysembler_core import *
+#from pysembler.pysembler_core import *
 import pysembler.pysembler_core
 import pysembler.pysembler_debug as pysembler_debug
 import pysembler.pysembler_formatter as pysembler_formatter
