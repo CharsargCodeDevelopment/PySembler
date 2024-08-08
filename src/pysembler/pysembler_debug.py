@@ -19,37 +19,31 @@ import random
 
 class RamManiplulator:
   def __init__(self, ram):
-    self.ram = ram
+    self.ram=ram
   def set_ram_memory_value(self, register, value):
-    self.ram.memory[register] = value
+    self.ram.memory[register]=value
   def set_ram_register_value(self, register, value):
-    self.ram.register[register] = value
+    self.ram.register[register]=value
   def get_ram_memory_value(self, register):
     return self.ram.memory[register]
   def get_ram_register_value(self, register):
     return self.ram.register[register]
   def clear_ram_register(self):
     for register in self.ram.register:
-      self.ram.register[register] = 0x0
+      self.ram.register[register]=0x0
   def clear_ram_memory(self):
     for register in self.ram.memory:
-      self.ram.memory[register] = 0x0
+      self.ram.memory[register]=0x0
   def clear_ram(self):
     self.clear_ram_register()
     self.clear_ram_memory()
-  def randomise_ram_register(self,lower_bounds = 0x0, upper_bounds = 0xf):
+  def randomise_ram_register(self, lower_bounds=0x0, upper_bounds=0xf):
     for register in self.ram.register:
       self.ram.register[register] = random.randint(lower_bounds, upper_bounds)
-  def randomise_ram_memory(self,lower_bounds = 0x0, upper_bounds = 0xf):
+  def randomise_ram_memory(self, lower_bounds=0x0, upper_bounds=0xf):
     for register in self.ram.memory:
       self.ram.memory[register] = random.randint(lower_bounds, upper_bounds)
-  def randomise_ram(self,lower_bounds = 0x0, upper_bounds = 0xf):
+  def randomise_ram(self, lower_bounds=0x0, upper_bounds=0xf):
     self.randomise_ram_register(lower_bounds, upper_bounds)
     self.randomise_ram_memory(lower_bounds, upper_bounds)
-
-      
-
-
-
-
 
