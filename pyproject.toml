@@ -3,7 +3,7 @@ name = "pysembler"
 version = "0.0.1"
 authors = ['charsarg']
 description = "A small example package"
-readme = "README.md"
+readme = {file = "README.txt", content-type = "text/markdown"}
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -17,6 +17,8 @@ name = "pysembler"
 version = "0.1.0"
 description = ""
 authors = ["charsarg"]
+readme = {file = "README.txt", content-type = "text/markdown"}
+
 
 [tool.poetry.dependencies]
 python = ">=3.10.0,<3.12"
