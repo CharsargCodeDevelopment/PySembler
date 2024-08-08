@@ -16,9 +16,10 @@
 # ------------------------------------------------------------------------------
 
 
-from pysembler_core import *
-import pysembler_debug
-import pysembler_formatter
+from pysembler.pysembler_core import *
+import pysembler.pysembler_core
+import pysembler.pysembler_debug as pysembler_debug
+import pysembler.pysembler_formatter as pysembler_formatter
 assembly_code = """
 		ENTRY
 start	MOV r0, #10
@@ -39,11 +40,13 @@ with open("assembly.code") as code_file:
     assembly_code = code_file.read()
 
 #Format the assembly code
-assembly_code = pysembler_formatter.format_assembly_code(assembly_code)
+assembly_code = pysembler_formatter.ensure_tabs(assembly_code)
 """
 assembly_code = "\t".join(assembly_code.split("    "))
-functions,entryFunction = ExtractFunctions(assembly_code)
 """
+
+functions,entryFunction = ExtractFunctions(assembly_code)
+
 #print(functions)
 #print(entryFunction)
 ram = Ram()
