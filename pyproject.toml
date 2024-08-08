@@ -1,4 +1,17 @@
-
+[project]
+name = "pysembler"
+version = "0.0.1"
+authors = ['charsarg']
+description = "A small example package"
+readme = {file = "README.txt", content-type = "text/markdown"}
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+description = "balls"
+long_description = "sdsdsd"
 
 [tool.poetry]
 name = "pysembler"
