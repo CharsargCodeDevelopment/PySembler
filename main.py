@@ -20,6 +20,7 @@ from pysembler.pysembler_core import *
 import pysembler.pysembler_core
 import pysembler.pysembler_debug as pysembler_debug
 import pysembler.pysembler_formatter as pysembler_formatter
+from pysembler.pysembler_builtin.arm import cortex_m3
 assembly_code = """
 		ENTRY
 start	MOV r0, #10
@@ -95,17 +96,28 @@ while Running == True:
     #Run command logic
     IncrementLineNumberNormally = True
     if currentCommand == "MOV":
+        cortex_m3.chipset.MOV(ram, currentParameters)
+        """
         if len(currentParameters) == 2:
             ram.set_value(currentParameters[0], currentParameters[1])
         else:
             print("Invalid number of parameters")
+        """
     if currentCommand == 'BL':
+        IncrementLineNumberNormally,_BL_Extra_output_ = cortex_m3.chipset.BL(ram, currentParameters,CurrentLocation,functions,LocationLayers=LocationLayers)
+        if _BL_Extra_output_["Error"] != None:
+            raise Exception(_BL_Extra_output_["Error"])
+        else:
+            R14 = _BL_Extra_output_["R14"]
+            CurrentLocation = _BL_Extra_output_["CurrentLocation"]
+        """
         ram.set_value("r14",ram.get_value('r15'))
         R14 = CurrentLocation
         IncrementLineNumberNormally = False
         if len(currentParameters) == 1:
             LocationLayers.append(CurrentLocation)
             CurrentLocation = [functions[currentParameters[0]][0],0]
+        """
     if currentCommand == 'BX':
         if len(currentParameters) == 1:
             if currentParameters[0] == "lr":

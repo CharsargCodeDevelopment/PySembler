@@ -20,3 +20,24 @@ from pysembler.pysembler_core import *
 import pysembler.pysembler_core
 import pysembler.pysembler_debug as pysembler_debug
 import pysembler.pysembler_formatter as pysembler_formatter
+
+
+def MOV(ram, currentParameters):
+    if len(currentParameters) == 2:
+        ram.set_value(currentParameters[0], currentParameters[1])
+    else:
+        print("Invalid number of parameters")
+
+
+def BL(ram, currentParameters,CurrentLocation,functions,LocationLayers=[]):
+    ram.set_value("r14",ram.get_value('r15'))
+    R14 = CurrentLocation
+    IncrementLineNumberNormally = False
+    if len(currentParameters) == 1:
+        LocationLayers.append(CurrentLocation)
+        CurrentLocation = [functions[currentParameters[0]][0],0]
+        return IncrementLineNumberNormally,{"R14":R14,"CurrentLocation":CurrentLocation,"Error":None}
+    return IncrementLineNumberNormally,{"Error":"WrongParams"}
+
+
+    
