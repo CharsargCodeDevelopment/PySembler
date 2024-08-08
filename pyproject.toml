@@ -10,7 +10,6 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-description = "balls"
 long_description = "sdsdsd"
 
 [tool.poetry]
