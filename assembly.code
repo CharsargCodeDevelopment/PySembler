@@ -1,0 +1,13 @@
+    ENTRY
+start	MOV r0, #10
+    MOV r1, #4
+    BL doadd
+    MOV r2, #10
+    MOV r3, #4
+    BL dosub
+    LDRB r5, #0, #5
+doadd	ADD r0, r1
+    BX lr
+dosub	SUB r2, r3
+    BX lr
+    END

@@ -21,7 +21,7 @@ import pysembler_debug
 assembly_code = """
 		ENTRY
 start	MOV r0, #10
-		MOV	r1, #4
+		MOV r1, #4
 		BL doadd
 		MOV r2, #10
 		MOV r3, #4
@@ -33,6 +33,9 @@ dosub	SUB r2, r3
 		BX lr
 		END
 """
+
+with open("assembly.code") as code_file:
+    assembly_code = code_file.read()
 functions,entryFunction = ExtractFunctions(assembly_code)
 
 #print(functions)
